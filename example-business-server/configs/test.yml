@@ -1,0 +1,6 @@
+---
+addr: localhost:3224
+verbose: true
+plissken-app-secret: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+plissken-app-token: my-app-token
+plissken-endpoint: http://localhost:3223

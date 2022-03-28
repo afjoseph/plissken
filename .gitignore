@@ -1,0 +1,10 @@
+build
+dist
+lib/opaque-bindings.js
+lib/opaque-bindings.js.map
+node_modules/
+*.map
+vendor
+__debug_bin
+cmd/gopherjs-bindings/run-example-client-node*
+cmd/gopherjs-bindings/out

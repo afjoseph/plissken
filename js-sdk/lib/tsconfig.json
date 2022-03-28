@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src/",
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    // commonjs to make nodejs happy
+    "module": "commonjs",
+    // es2015 to make browsers happy
+    "target": "es2015",
+    // To generate .d.ts files
+    "declaration": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "allowJs": true
+  },
+  "include" :[
+      "src/**/*.ts"
+  ]
+}

@@ -1,0 +1,23 @@
+.login-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-size: calc(3px + 2vmin);
+}
+
+input {
+  text-align: center;
+}
