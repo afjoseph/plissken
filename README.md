@@ -1,4 +1,4 @@
-# Plissken: Privacy-first Password Authentication
+# Plissken: Privacy-first Password Authentication Suite
 
 <p align="center">
   <img src="https://github.com/afjoseph/plissken/blob/main/logo.png" width="300" />
