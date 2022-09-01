@@ -22,12 +22,12 @@ See demos here:
   - this is where all the password proofs will be stored. This can be a different server than the resources server
 - Business server: https://plissken-business-server.fly.dev
   - This is the server the user would access after authentication.
-- Web demo: https://fly.io/apps/plissken-web-demo
+- Web demo: https://plissken-web-demo.fly.dev
   - Just a web demo that ties both the above concepts together
 
 To summarize the demo:
 
-- A user opens https://fly.io/apps/plissken-web-demo with their browser
+- A user opens https://plissken-web-demo.fly.dev with their browser
 - They register there with https://plissken-auth-server.fly.dev. Their browser basically generates password proofs and runs the OPAQUE protocol against the Auth Server.
 - After a successful registration, the user would login to the Auth Server
 - Auth Server would issue an ephemeral token to them that they can use with the Business Server
