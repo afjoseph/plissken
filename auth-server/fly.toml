@@ -1,18 +1,16 @@
-# fly.toml file generated for plissken-auth-server on 2022-04-17T19:36:23+02:00
+# fly.toml file generated for plissken-auth-server2 on 2023-04-17T10:03:06+02:00
 
-app = "plissken-auth-server"
-
+app = "plissken-auth-server2"
 kill_signal = "SIGINT"
 kill_timeout = 5
+primary_region = "ams"
 processes = []
 
 [build]
-  dockerfile = "Dockerfile"
 
 [env]
 
 [experimental]
-  allowed_public_ports = []
   auto_rollback = true
 
 [[services]]
@@ -21,7 +19,6 @@ processes = []
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20

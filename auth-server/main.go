@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"os"
 	"os/signal"
 	"path/filepath"
@@ -112,6 +113,8 @@ func mainErr() error {
 	}
 
 	// Init RedisWrapper
+	fmt.Printf("redis-url: %s\n", config.RedisUrl)
+	fmt.Printf("redis-password: %s\n", config.redisPassword)
 	rdw := &rediswrapper.RedisWrapper{
 		Client: redis.NewClient(&redis.Options{
 			Addr:     config.RedisUrl,

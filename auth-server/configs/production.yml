@@ -1,5 +1,5 @@
 ---
-addr: :8080
+addr: 127.0.0.1:8080
 sdk-version: 1.0.0
 verbose: true
 # https://app.redislabs.com/#/subscriptions/subscription/1714781/bdb-view/11600866/configuration
