@@ -1,9 +1,0 @@
----
-addr: localhost:3223
-sdk-version: 0.0.1
-verbose: true
-# Leave empty to use miniredis
-redis-url:
-key-path: ./testdata/test-privkey
-app-tokens-and-secrets:
-  my-app-token: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

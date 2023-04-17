@@ -1,6 +1,0 @@
----
-addr: :8080
-verbose: true
-plissken-endpoint: https://plissken-auth-server.fly.dev
-plissken-app-secret: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-plissken-app-token: my-app-token

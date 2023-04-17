@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/afjoseph/plissken-auth-server/opaquecommon"
+	plisskencommon "github.com/afjoseph/plissken-protocol/common"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/pkg/errors"
@@ -44,7 +44,7 @@ func (s *MyServer) handleStartPasswordRegistration(c *gin.Context) {
 	}
 	logrus.Debugf("%+v", string(b))
 
-	var req opaquecommon.OprfRequestResults
+	var req plisskencommon.OprfRequestResults
 	err = c.MustBindWith(&req, binding.JSON)
 	if err != nil {
 		c.AbortWithError(
@@ -81,7 +81,7 @@ func (s *MyServer) handleStartPasswordRegistration(c *gin.Context) {
 		return
 	}
 
-	c.JSON(200, &opaquecommon.OprfServerEvaluation{Eval: eval})
+	c.JSON(200, &plisskencommon.OprfServerEvaluation{Eval: eval})
 }
 
 func (s *MyServer) handleFinalizePasswordRegistration(c *gin.Context) {
@@ -91,7 +91,7 @@ func (s *MyServer) handleFinalizePasswordRegistration(c *gin.Context) {
 	}
 	logrus.Debugf("%+v", string(b))
 
-	var req opaquecommon.PasswordRegistrationData
+	var req plisskencommon.PasswordRegistrationData
 	err = c.MustBindWith(&req, binding.JSON)
 	if err != nil {
 		c.AbortWithError(
@@ -125,7 +125,7 @@ func (s *MyServer) handleStartPasswordAuthentication(c *gin.Context) {
 	}
 	logrus.Debugf("%+v", string(b))
 
-	var req opaquecommon.OprfRequestResults
+	var req plisskencommon.OprfRequestResults
 	err = c.MustBindWith(&req, binding.JSON)
 	if err != nil {
 		c.AbortWithError(
@@ -149,7 +149,7 @@ func (s *MyServer) handleStartPasswordAuthentication(c *gin.Context) {
 			SetMeta("request failed to evaluate")
 		return
 	}
-	c.JSON(200, &opaquecommon.StartPasswordAuthServerResp{
+	c.JSON(200, &plisskencommon.StartPasswordAuthServerResp{
 		Eval:      eval,
 		EnvU:      envU,
 		EnvUNonce: envUNonce,
@@ -159,7 +159,7 @@ func (s *MyServer) handleStartPasswordAuthentication(c *gin.Context) {
 }
 
 func (s *MyServer) handleFinalizePasswordAuthentication(c *gin.Context) {
-	var req opaquecommon.FinalizePasswordAuthData
+	var req plisskencommon.FinalizePasswordAuthData
 	err := c.MustBindWith(&req, binding.JSON)
 	if err != nil {
 		c.AbortWithError(

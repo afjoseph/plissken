@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/afjoseph/plissken-auth-server/opaqueserver"
+	plisskenserver "github.com/afjoseph/plissken-protocol/server"
 	"github.com/go-redis/redis/v8"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -18,7 +18,7 @@ import (
 
 const authNoncesMaxCount = 20
 
-// RedisWrapper implements the opaqueserver.Storage interface
+// RedisWrapper implements the plisskenserver.Storage interface
 type RedisWrapper struct {
 	*redis.Client
 }
@@ -46,7 +46,7 @@ func redisKey_AppSecret(apptoken string) string {
 func (s RedisWrapper) StoreUserRequest(
 	ctx context.Context,
 	apptoken, username string,
-	req *opaqueserver.UserRequest) error {
+	req *plisskenserver.UserRequest) error {
 	b, err := json.Marshal(req)
 	if err != nil {
 		return errors.Wrap(err, "")
@@ -59,8 +59,8 @@ func (s RedisWrapper) StoreUserRequest(
 }
 
 func (s RedisWrapper) LoadUserRequest(ctx context.Context, apptoken, username string) (
-	*opaqueserver.UserRequest, error) {
-	var req opaqueserver.UserRequest
+	*plisskenserver.UserRequest, error) {
+	var req plisskenserver.UserRequest
 	str, err := s.Get(ctx, redisKey_UserRequest(apptoken, username)).Result()
 	if err != nil {
 		return nil, errors.Wrap(err, "")
@@ -86,7 +86,7 @@ func (s RedisWrapper) HasUserRequest(ctx context.Context, apptoken, username str
 func (s RedisWrapper) StoreUserEnvelope(
 	ctx context.Context,
 	apptoken, username string,
-	req *opaqueserver.UserEnvelope) error {
+	req *plisskenserver.UserEnvelope) error {
 	b, err := json.Marshal(req)
 	if err != nil {
 		return errors.Wrap(err, "")
@@ -100,8 +100,8 @@ func (s RedisWrapper) StoreUserEnvelope(
 
 func (s RedisWrapper) LoadUserEnvelope(
 	ctx context.Context,
-	apptoken, username string) (*opaqueserver.UserEnvelope, error) {
-	var req opaqueserver.UserEnvelope
+	apptoken, username string) (*plisskenserver.UserEnvelope, error) {
+	var req plisskenserver.UserEnvelope
 	str, err := s.Get(ctx, redisKey_UserEnvelope(apptoken, username)).Result()
 	if err != nil {
 		return nil, errors.Wrap(err, "")

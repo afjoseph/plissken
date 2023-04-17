@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/afjoseph/plissken-auth-server/opaqueserver"
 	"github.com/afjoseph/plissken-auth-server/rediswrapper"
+	plisskenserver "github.com/afjoseph/plissken-protocol/server"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
@@ -23,7 +23,7 @@ type MyServer struct {
 	gitCommitHash       string
 	sdkVersion          string
 	redisWrapper        *rediswrapper.RedisWrapper
-	opaqueServer        *opaqueserver.Server
+	opaqueServer        *plisskenserver.Server
 	corsOriginWhitelist []string
 }
 
@@ -41,7 +41,7 @@ func Host(
 		corsOriginWhitelist, addr, verbose)
 
 	// Init OpaqueServer
-	opaqueServer, err := opaqueserver.NewServer(rdw, serverPrivKey)
+	opaqueServer, err := plisskenserver.NewServer(rdw, serverPrivKey)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}

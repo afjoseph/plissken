@@ -1,9 +1,9 @@
 ---
 addr: :8080
-sdk-version: 0.0.1
+sdk-version: 1.0.0
 verbose: true
-# https://app.redislabs.com/#/subscriptions/subscription/1714781/bdb-view/10928679/configuration
-redis-url: redis-19968.c55.eu-central-1-1.ec2.cloud.redislabs.com:19968
+# https://app.redislabs.com/#/subscriptions/subscription/1714781/bdb-view/11600866/configuration
+redis-url: redis-19215.c293.eu-central-1-1.ec2.cloud.redislabs.com:19215
 key-path: ./infra/flyio-privkey
 app-tokens-and-secrets:
   my-app-token: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

@@ -8,3 +8,5 @@ vendor
 __debug_bin
 cmd/gopherjs-bindings/run-example-client-node*
 cmd/gopherjs-bindings/out
+# Explicitly ignore auth-server vendoring: we don't need it now
+auth-server/vendor
